@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Performance Reports</title>
+
+   <!-- Font Awesome CDN Link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- Custom CSS -->
+   <style>
+      body {
+         font-family: 'Poppins', sans-serif;
+         background: linear-gradient(to right, #6a11cb, #2575fc);
+         margin: 0;
+         padding: 0;
+         color: #fff;
+         display: flex;
+         flex-direction: column;
+         min-height: 100vh;
+      }
+
+      header {
+         background: #fff;
+         padding: 1rem 2rem;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      header .logo {
+         font-size: 1.5rem;
+         font-weight: bold;
+         color: #2575fc;
+         text-decoration: none;
+      }
+
+      section {
+         padding: 2rem;
+         max-width: 1200px;
+         margin: auto;
+         flex-grow: 1;
+      }
+
+      h1 {
+         font-size: 2.5rem;
+         color: #fff;
+         margin-bottom: 2rem;
+         text-align: center;
+      }
+
+      .chart-container {
+         background: #fff;
+         border-radius: 10px;
+         padding: 2rem;
+         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+         margin-bottom: 2rem;
+      }
+
+      .chart-container h3 {
+         text-align: center;
+         font-size: 1.8rem;
+         color: #333;
+         margin-bottom: 1rem;
+      }
+
+      footer {
+         background: #fff;
+         text-align: center;
+         padding: 1rem 0;
+         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      footer span {
+         color: #2575fc;
+      }
+   </style>
+   
+   <!-- Chart.js CDN -->
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<header>
+   <a href="admin-dashboard.html" class="logo">Admin Panel</a>
+</header>
+
+<section>
+   <h1>Performance Reports</h1>
+
+   <div class="chart-container">
+      <h3>Course Completion Statistics</h3>
+      <canvas id="completionChart"></canvas>
+   </div>
+
+   <div class="chart-container">
+      <h3>Student Feedback Distribution</h3>
+      <canvas id="feedbackChart"></canvas>
+   </div>
+
+   <div class="chart-container">
+      <h3>Overall Performance</h3>
+      <canvas id="performanceChart"></canvas>
+   </div>
+</section>
+
+<footer>
+   &copy; 2024 by <span>Admin Team</span>. All rights reserved.
+</footer>
+
+<!-- Custom JavaScript -->
+<script>
+   // Course Completion Chart
+   var ctx1 = document.getElementById('completionChart').getContext('2d');
+   var completionChart = new Chart(ctx1, {
+      type: 'pie',
+      data: {
+         labels: ['Completed', 'In Progress', 'Not Started'],
+         datasets: [{
+            label: 'Course Completion',
+            data: [75, 15, 10],
+            backgroundColor: ['#4caf50', '#ff9800', '#f44336'],
+            borderColor: ['#4caf50', '#ff9800', '#f44336'],
+            borderWidth: 1
+         }]
+      }
+   });
+
+   // Feedback Chart
+   var ctx2 = document.getElementById('feedbackChart').getContext('2d');
+   var feedbackChart = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+         labels: ['Excellent', 'Good', 'Average', 'Poor'],
+         datasets: [{
+            label: 'Feedback Distribution',
+            data: [45, 30, 15, 10],
+            backgroundColor: '#2575fc',
+            borderColor: '#2575fc',
+            borderWidth: 1
+         }]
+      },
+      options: {
+         responsive: true,
+         scales: {
+            y: {
+               beginAtZero: true
+            }
+         }
+      }
+   });
+
+   // Overall Performance Chart
+   var ctx3 = document.getElementById('performanceChart').getContext('2d');
+   var performanceChart = new Chart(ctx3, {
+      type: 'line',
+      data: {
+         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+         datasets: [{
+            label: 'Performance Over Time',
+            data: [75, 80, 85, 90, 95, 100],
+            borderColor: '#6a11cb',
+            backgroundColor: 'rgba(106, 17, 203, 0.2)',
+            borderWidth: 2,
+            tension: 0.4
+         }]
+      },
+      options: {
+         responsive: true,
+         scales: {
+            y: {
+               beginAtZero: true,
+               max: 110
+            }
+         }
+      }
+   });
+</script>
+
+</body>
+</html>

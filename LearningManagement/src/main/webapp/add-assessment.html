@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Add Assessment</title>
+
+   <!-- Font Awesome CDN Link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+
+   <!-- Custom CSS -->
+   <style>
+      body {
+         font-family: 'Poppins', sans-serif;
+         margin: 0;
+         padding: 0;
+         background: linear-gradient(to right, #ff7e5f, #feb47b);
+         color: #fff;
+      }
+      header {
+         background: #333;
+         padding: 1rem;
+         text-align: center;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      header .logo {
+         font-size: 2rem;
+         color: #fff;
+         text-decoration: none;
+         font-weight: bold;
+      }
+      .container {
+         max-width: 800px;
+         margin: 3rem auto;
+         padding: 2rem;
+         background: #fff;
+         border-radius: 12px;
+         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+         color: #333;
+      }
+      .container h1 {
+         text-align: center;
+         margin-bottom: 1.5rem;
+         color: #ff7e5f;
+      }
+      form {
+         display: flex;
+         flex-direction: column;
+      }
+      label {
+         margin-bottom: 0.5rem;
+         font-weight: bold;
+      }
+      input, select, textarea {
+         margin-bottom: 1.5rem;
+         padding: 0.8rem;
+         font-size: 1rem;
+         border: 1px solid #ddd;
+         border-radius: 8px;
+         width: 100%;
+      }
+      input:focus, select:focus, textarea:focus {
+         outline: none;
+         border-color: #ff7e5f;
+         box-shadow: 0 0 5px rgba(255, 126, 95, 0.6);
+      }
+      .btn {
+         display: inline-block;
+         padding: 0.8rem 1.5rem;
+         background: linear-gradient(to right, #ff7e5f, #feb47b);
+         color: #fff;
+         text-decoration: none;
+         border-radius: 8px;
+         font-size: 1rem;
+         text-align: center;
+         transition: background 0.3s;
+         cursor: pointer;
+         border: none;
+      }
+      .btn:hover {
+         background: linear-gradient(to right, #feb47b, #ff7e5f);
+      }
+      .back-link {
+         display: block;
+         text-align: center;
+         margin-top: 1rem;
+         color: #ff7e5f;
+         text-decoration: none;
+         font-size: 1rem;
+      }
+      .back-link:hover {
+         text-decoration: underline;
+      }
+      footer {
+         text-align: center;
+         padding: 1rem;
+         background: #333;
+         color: #fff;
+         margin-top: 2rem;
+      }
+   </style>
+</head>
+<body>
+
+<header>
+   <a href="admin-dashboard.html" class="logo">Admin Panel</a>
+</header>
+
+<div class="container">
+   <h1>Add New Assessment</h1>
+   <form action="submit-assessment.html" method="post">
+      <label for="assessment-title">Assessment Title:</label>
+      <input type="text" id="assessment-title" name="assessment_title" placeholder="Enter assessment title" required>
+
+      <label for="course">Course:</label>
+      <select id="course" name="course" required>
+         <option value="" disabled selected>Select a course</option>
+         <option value="programming101">Programming 101</option>
+         <option value="data-science-basics">Data Science Basics</option>
+         <option value="design-principles">Design Principles</option>
+      </select>
+
+      <label for="assessment-date">Date:</label>
+      <input type="date" id="assessment-date" name="assessment_date" required>
+
+      <label for="assessment-description">Description:</label>
+      <textarea id="assessment-description" name="assessment_description" rows="4" placeholder="Enter assessment details" required></textarea>
+
+      <button type="submit" class="btn">Submit</button>
+   </form>
+   <a href="assessment-report.html" class="back-link">Go Back to Assessment Report</a>
+</div>
+
+<footer>
+   &copy; 2024 Admin Team. All Rights Reserved.
+</footer>
+
+</body>
+</html>
